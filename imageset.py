@@ -47,14 +47,14 @@ def make_imageset(name, config_json, image_dir, output_dir):
     cmd = "mkdir " + imageset_path
     os.system(cmd)
 
-    print "source_path:%s \n imageset_path:%s \n %s" % (source_path, imageset_path, image_names)
+    # print "source_path:%s \n imageset_path:%s \n %s" % (source_path, imageset_path, image_names)
 
     for name_temp in image_names:
         image_temp_path = image_dir + "/" + name_temp
         if os.path.isfile(image_temp_path) == False:
             print_color_string("未找到" + name_temp, "red")
         cmd = "cp " + image_temp_path + " " + imageset_path
-        print cmd
+        # print cmd
         os.system(cmd)
 
     json = config_json.replace("2xpng", name + "@2x.png")
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     images_dir = current_dir_path + "/" + IMAGES_DIR_NAME
     images = get_images_name(images_dir)
 
-    print "image_config: %s\noutput_dir:%s\nimages_dir:%s\nimages:%s" % (image_config, output_dir, images_dir, images)
+    # print "image_config: %s\noutput_dir:%s\nimages_dir:%s\nimages:%s" % (image_config, output_dir, images_dir, images)
 
     for name in images:
         make_imageset(name, image_config, images_dir, output_dir)
